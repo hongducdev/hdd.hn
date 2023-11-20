@@ -1,7 +1,7 @@
 import { getTopStories, getStory } from "@/apis";
 import PostItem from "@/components/PostItem";
 
-export const topStories = async () => {
+const topStories = async () => {
   const storyIds = await getTopStories();
 
   const stories = await Promise.all(
