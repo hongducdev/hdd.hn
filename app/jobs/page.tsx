@@ -1,8 +1,9 @@
-import { getTopStories, getStory } from "@/apis";
+import { getJobStories, getNewStories, getStory } from "@/apis";
 import PostItem from "@/components/PostItem";
+import React from "react";
 
-export const topStories = async () => {
-  const storyIds = await getTopStories();
+export const jobsStories = async () => {
+  const storyIds = await getJobStories();
 
   const stories = await Promise.all(
     storyIds.slice(0, 30).map(async (id: number) => {
@@ -26,10 +27,10 @@ export const topStories = async () => {
   };
 };
 
-const Home = async () => {
+const NewPage = async () => {
   const {
     props: { stories },
-  } = await topStories();
+  } = await jobsStories();
 
   return (
     <div>
@@ -42,4 +43,4 @@ const Home = async () => {
   );
 };
 
-export default Home;
+export default NewPage;
