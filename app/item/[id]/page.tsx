@@ -18,7 +18,6 @@ interface Comment {
   type: string;
 }
 
-// generateMetadata is a function that returns a promise
 export const generateMetadata = async ({ params }: { params: Params }) => {
   const { id } = params;
   const story = await getStory(id);
@@ -28,9 +27,14 @@ export const generateMetadata = async ({ params }: { params: Params }) => {
   };
 };
 
+const storyData = async (id: number) => {
+  const story = await getStoryWithComments(id);
+  return story;
+};
+
 const Page = async ({ params }: { params: Params }) => {
   const { id } = params;
-  const story = await getStory(id);
+  const story = await storyData(id);
 
   return (
     <div>
