@@ -2,7 +2,7 @@ import { getBestStories, getStory } from "@/apis";
 import PostItem from "@/components/PostItem";
 import React from "react";
 
-export const bestStories = async () => {
+const bestStories = async () => {
   const storyIds = await getBestStories();
 
   const stories = await Promise.all(

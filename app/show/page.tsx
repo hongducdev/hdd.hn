@@ -2,7 +2,7 @@ import { getNewStories, getShowStories, getStory } from "@/apis";
 import PostItem from "@/components/PostItem";
 import React from "react";
 
-export const showStories = async () => {
+const showStories = async () => {
   const storyIds = await getShowStories();
 
   const stories = await Promise.all(
